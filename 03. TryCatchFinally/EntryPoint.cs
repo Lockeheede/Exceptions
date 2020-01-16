@@ -6,6 +6,9 @@ using System.IO;
         static void Main()
         {
         StreamWriter sw = null;
+        //Use conditional statements when you are in control of what might happen
+        //Use try/catch blocks in extreme situations, otherwise use conditonals
+        //try/catch blocks are in cases where you do not know the outcome of what might happen.
         try
         {
             sw = File.AppendText(Directory.GetCurrentDirectory() + @"\test.txt");
