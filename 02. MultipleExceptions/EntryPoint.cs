@@ -16,9 +16,16 @@
 		{
 			Console.WriteLine("Your input was not a number! Please enter a number!");
 		}
-		catch (DivideByZeroException)
+		//you can make the exceptions into variables (notice the "ex" variable in this catch block)
+		catch (DivideByZeroException ex)
 		{
-			Console.WriteLine("You cannot divide by 0! Enter a non-zero number!");
+			int startIndex = ex.StackTrace.IndexOf(':') - 1;
+			int length = ex.StackTrace.Length - startIndex;
+			string fileName = ex.StackTrace.Substring(startIndex, length);
+
+			Console.WriteLine(fileName);//This uses the substring method to isolate the filename where the exception is happening
+			Console.WriteLine(ex.Message);//This method creates the default message based on the type of exception
+
 
 		}
 		catch (Exception)
